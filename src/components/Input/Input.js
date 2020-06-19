@@ -25,7 +25,6 @@ const InputBox = (props) => {
 				rows='10'
 				resize='none'
 				placeholder='Enter text here...'
-				value={message}
 				onChange={messageChange}></textarea>
 			<button type='submit' className='button'>
 				Submit

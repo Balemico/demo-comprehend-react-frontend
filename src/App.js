@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 // import logo from './logo.svg';
 import Header from './components/Header/Header';
 import Input from './components/Input/Input';
@@ -7,11 +8,35 @@ import Results from './components/Results/Results';
 import './App.css';
 
 const App = () => {
+	const [isLoading, setIsLoading] = useState(false);
 	const [userInput, setUserInput] = useState('');
+	const [results, setResults] = useState('');
 
-	const handleUserInput = (value) => {
+	const handleUserSubmit = async (value) => {
 		console.log('handleuserinput:', value);
+		setIsLoading(true);
 		setUserInput(value);
+		setResults('');
+
+		const urlLang = '/api/language/';
+		const urlSent = '/api/sentiment/';
+		const urlEnt = '/api/entities/';
+		const data = { text: value };
+		const comprehenceData = await axios.all([
+			axios.post(urlLang, data),
+			axios.post(urlSent, data),
+			axios.post(urlEnt, data)
+		])
+
+		let comprehenceResults = {};
+		comprehenceResults.language = comprehenceData[0].data;
+		comprehenceResults.sentiment = comprehenceData[1].data;
+		comprehenceResults.entities = comprehenceData[2].data;
+
+		console.log(comprehenceResults)
+
+		setResults(comprehenceResults);
+		setIsLoading(false);
 	};
 
 	return (
@@ -19,8 +44,8 @@ const App = () => {
 			<div className='main'>
 				<Header />
 				<div className='interface'>
-					<Input onUserSubmit={handleUserInput} />
-					<Results message={userInput} />
+					<Input onUserSubmit={handleUserSubmit} />
+					<Results results={results} isLoading={isLoading} />
 				</div>
 			</div>
 		</div>
