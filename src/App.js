@@ -29,7 +29,7 @@ const App = () => {
 		setIsLoading(true);
 		setResults('');
 
-		const data = { text: value, crossdomain: true };
+		const data = { text: value };
 		const comprehenceData = await axios.all([
 			axios.post(LANG_API, data),
 			axios.post(SENTIMENT_API, data),
