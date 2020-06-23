@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import TextArea from '../TextArea/TextArea';
 import FileUpload from '../FileUpload/FileUpload';

@@ -11,7 +11,6 @@ import './App.css';
 
 const App = () => {
 	const [isLoading, setIsLoading] = useState(false);
-	const [userInput, setUserInput] = useState('');
 	const [results, setResults] = useState('');
 
 	const handleUserUpload = (response) => {
@@ -28,7 +27,6 @@ const App = () => {
 	const handleUserSubmit = async (value) => {
 		console.log('handleuserinput:', value);
 		setIsLoading(true);
-		setUserInput(value);
 		setResults('');
 
 		const data = { text: value };
