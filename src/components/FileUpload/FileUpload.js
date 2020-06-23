@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Dropzone from 'react-dropzone-uploader'
 
+import { UPLOAD_API } from '../../api/config';
+
 import 'react-dropzone-uploader/dist/styles.css'
 import './FileUpload.css';
 
@@ -10,7 +12,7 @@ const FileUpload = (props) => {
   const { onUserUpload } = props;
 
   const getUploadParams = () => {
-    return { url: '/api/upload/' }
+    return { url: UPLOAD_API }
   }
 
   const handleChangeStatus = ({ meta, remove, xhr }, status) => {

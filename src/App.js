@@ -5,6 +5,8 @@ import Header from './components/Header/Header';
 import Input from './components/Input/Input';
 import Results from './components/Results/Results';
 
+import { LANG_API, ENTITIES_API, SENTIMENT_API } from './api/config';
+
 import './App.css';
 
 const App = () => {
@@ -29,14 +31,11 @@ const App = () => {
 		setUserInput(value);
 		setResults('');
 
-		const urlLang = '/api/language/';
-		const urlSent = '/api/sentiment/';
-		const urlEnt = '/api/entities/';
 		const data = { text: value };
 		const comprehenceData = await axios.all([
-			axios.post(urlLang, data),
-			axios.post(urlSent, data),
-			axios.post(urlEnt, data)
+			axios.post(LANG_API, data),
+			axios.post(SENTIMENT_API, data),
+			axios.post(ENTITIES_API, data)
 		])
 
 		let comprehenceResults = {};
