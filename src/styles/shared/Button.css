@@ -1,0 +1,37 @@
+.button {
+  font: inherit;
+  padding: 1rem 1.5rem;
+  /* border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px; */
+  border: none;
+
+  background: rgba(69, 123, 157, 0.6);
+
+  color: #f1faee;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+}
+.button--active {
+  background: rgba(69, 123, 157, 0.9);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover,
+.button:active {
+  background: #457b9d;
+  border: none;
+}
+
+.button:disabled {
+  cursor: default;
+  background-color: #525a5f;
+  color: rgba(241, 250, 238, 0.6);
+}

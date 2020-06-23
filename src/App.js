@@ -12,6 +12,17 @@ const App = () => {
 	const [userInput, setUserInput] = useState('');
 	const [results, setResults] = useState('');
 
+	const handleUserUpload = (response) => {
+		if (response) {
+			setIsLoading(true);
+			setResults(JSON.parse(response));
+			setIsLoading(false);
+		} else {
+			setResults('');
+		}
+
+	}
+
 	const handleUserSubmit = async (value) => {
 		console.log('handleuserinput:', value);
 		setIsLoading(true);
@@ -44,7 +55,7 @@ const App = () => {
 			<div className='main'>
 				<Header />
 				<div className='interface'>
-					<Input onUserSubmit={handleUserSubmit} />
+					<Input onUserSubmit={handleUserSubmit} onUserUpload={handleUserUpload} />
 					<Results results={results} isLoading={isLoading} />
 				</div>
 			</div>

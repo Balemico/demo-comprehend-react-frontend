@@ -1,4 +1,4 @@
-.results {
+.interface__results {
   /* background-color: rgba(69, 123, 157, 0.2); */
   width: calc(50% - 2rem);
   border-radius: 5px;
@@ -17,4 +17,33 @@
   margin-bottom: 1rem;
   color: #f1faee;
   font-size: 1.4em;
+}
+
+.results__entity {
+  padding-bottom: 0.5rem;
+  font-size: 0.8em;
+  display: flex;
+}
+
+.results__entities__list {
+  /* margin: 0; */
+  padding: 0rem;
+  display: block;
+}
+
+.results__entity {
+  padding: 0.5rem;
+}
+
+.results__entity:nth-child(odd) {
+  background-color: rgba(168, 218, 220, 0.2);
+}
+
+.results__entity__text {
+  width: 50%;
+  padding-right: 1rem;
+}
+.results__entity__type {
+  width: 50%;
+  font-weight: bold;
 }

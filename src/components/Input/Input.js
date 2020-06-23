@@ -1,36 +1,43 @@
 import React, { useState, useEffect } from 'react';
 
+import TextArea from '../TextArea/TextArea';
+import FileUpload from '../FileUpload/FileUpload';
+
 import './Input.css';
 
 const InputBox = (props) => {
-	const [message, setMessage] = useState('');
-	const { onUserSubmit } = props;
+	const [inputType, setInputType] = useState('upload');
 
-	const messageChange = (event) => {
-		setMessage(event.target.value);
-	};
+	const { onUserSubmit, onUserUpload } = props;
 
-	const onFormSubmit = (event) => {
-		event.preventDefault();
-		onUserSubmit(message);
-		setMessage('');
-	};
+	const getView = () => {
+		return inputType === 'text' ?
+			<TextArea onUserSubmit={onUserSubmit} /> :
+			<FileUpload onUserUpload={onUserUpload} />;
+	}
+
+	const handleTextButtonClick = () => {
+		setInputType('text')
+	}
+	const handleUploadButtonClick = () => {
+		setInputType('upload')
+	}
 
 	return (
-		<form className='form' onSubmit={onFormSubmit}>
-			{/* <p className='form__label'>Write a message:</p> */}
-			<textarea
-				name='comment'
-				form='form'
-				rows='10'
-				resize='none'
-				placeholder='Enter text here...'
-				onChange={messageChange}></textarea>
-			<button type='submit' className='button'>
-				Submit
-			</button>
-		</form>
-	);
+		<section className="interface__input">
+
+			<div className="input__type">
+				<button onClick={handleTextButtonClick} className={'button ' + (inputType === 'text' ? 'button--active' : '')} >Text Area</button>
+				<button onClick={handleUploadButtonClick} className={'button ' + (inputType === 'upload' ? 'button--active' : '')}>Upload File</button>
+			</div>
+			<div className="input__area">
+				{getView()}
+			</div>
+
+
+		</section>
+	)
+
 };
 
 export default InputBox;
