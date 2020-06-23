@@ -44,6 +44,7 @@ const FileUpload = (props) => {
         maxFiles={1}
         multiple={false}
         canCancel={false}
+        accept="application/pdf"
         inputContent={fileMeta ? fileMeta.name + " uploaded" : "Drop A File"}
       />
     </section>
