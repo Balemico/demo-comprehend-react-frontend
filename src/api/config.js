@@ -1,4 +1,4 @@
-const API_ENDPOINT = process.env.API_ENDPOINT || "http://localhost:5000";
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || "http://localhost:5000";
 export const UPLOAD_API = API_ENDPOINT + '/api/upload';
 export const LANG_API = API_ENDPOINT + '/api/lang';
 export const SENTIMENT_API = API_ENDPOINT + '/api/sentiment';
