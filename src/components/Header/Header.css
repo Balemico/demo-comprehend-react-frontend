@@ -4,8 +4,8 @@
 .header__title {
   font-size: 4em;
 }
-@media screen and (max-width: 480px) {
-.header__title{
-  font-size:2em;
-}
+@media screen and (max-width: 768px) {
+  .header__title {
+    font-size: 2em;
+  }
 }
