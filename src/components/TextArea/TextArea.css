@@ -29,3 +29,9 @@
 .form textarea:focus {
   background: rgba(69, 123, 157, 0.6);
 }
+
+@media screen and (max-width: 480px) {
+.form textarea{
+  max-height:200px;
+}
+}

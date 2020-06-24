@@ -1,7 +1,4 @@
 .interface__input {
-  /* padding-left: 2rem;
-  padding-right: 2rem; */
-
   width: calc(50% - 2rem);
 }
 
@@ -12,4 +9,11 @@
 
 .input__area {
   width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+.interface__input{
+  width:100%;
+}
+
 }

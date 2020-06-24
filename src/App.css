@@ -14,3 +14,17 @@
   display: flex;
   justify-content: space-between;
 }
+
+
+@media screen and (max-width: 480px) {
+.app{
+  display:block;
+  height:auto;
+}
+.main{
+  max-width:calc(100% - 4rem);
+}
+.interface{
+  flex-wrap:wrap;
+}
+}

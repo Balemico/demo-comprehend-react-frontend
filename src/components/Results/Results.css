@@ -47,3 +47,10 @@
   width: 50%;
   font-weight: bold;
 }
+
+@media screen and (max-width: 480px) {
+.interface__results{
+  width:100%;
+  margin-top:2rem;
+}
+}
